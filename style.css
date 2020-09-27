@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.main-ui {  
+    width: 100%;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start ;
+}
+
+.boxes {
+    display: flex;
+    width: 100%;
+}
+
+.progress {
+    margin: 40px;
+    width: 90vw;
+    border: 1px solid #c7c7c7;
+    position: relative;
+}
+
+.progress-inner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #7ecc00;
+    opacity: 0.57;
+    transform: scaleX(0);
+    transform-origin: center left;
+    transition: transform .4s ease-out;
+}
+
+.score-line {
+    margin: 20px;
+    font-size: 30px;
+}
+
+.box {
+    height: 60px;
+    border-right: 1px solid #c7c7c7;
+    flex: 1;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.82);
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .33s ease-out;
+    transform: scale(1.2);
+    font-size: 20px;
+}
+
+body.overlay-is-open .overlay {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+body.overlay-is-open .main-ui {
+    filter: blur(4px);
+}
+
+@keyframes showError {
+    50% {
+        color: red;
+        transform: scale(1.2);
+    }
+
+    100% {
+        color: #333;
+        transform: scale(1);
+    }
+}
+
+.wrong {
+    animation: .45s showError;
+}
+
+.problem {
+    margin: 50px;
+    font-size: 70px;
+}
+
+button {
+    padding: 3px;
+    font-size: 12px;
+}
